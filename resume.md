@@ -11,62 +11,66 @@ body-class: resume
 
 {% for section in site.data.resume.sections %}
 <section>
-	<h2><i class="fa {{ section.icon }}" aria-hidden="true"></i> {{ section.heading }}</h2>
-	{% if section.heading == "Work Experience" %}
-		{% for job in site.data.resume.jobs %}
-			<h6>{{ job.company_name }} <span>{{ job.date }}</span></h6>
-			<p><span>{{ job.title }}</span>{{ job.description }}</p>
-		{% endfor %}
-	{% endif %}
-	{% if section.heading == "Skills" %}
-			{% assign loopindex = 0 %}
-			{% for skill in site.data.resume.skills  %}
-			{% assign loopindex = loopindex | plus: 1 %}
-			{% assign rowfinder = loopindex | modulo: 4 %}
-			
-				{% if rowfinder == '1' or forloop.first %}
-					<ul class="skills">
-				{% endif %}
-					<li>{{ skill.name }} <!-- {{ loopindex }}|{{ rowfinder }} --> </li>
-				{% if rowfinder == 0 %}				
-					</ul><ul class="skills"> 
-				{% endif %}
-				{% if forloop.last %}				
-					</ul>
-				{% endif %}
-
-			{% endfor %}
+	
+		<h2><i class="fa {{ section.icon }}" aria-hidden="true"></i> {{ section.heading }}</h2>
+		<article>
+			{% if section.heading == "Work Experience" %}
+				{% for job in site.data.resume.jobs %}
+					<h6>{{ job.company_name }} <span>{{ job.date }}</span></h6>
+					<p><span>{{ job.title }}</span>{{ job.description }}</p>
+				{% endfor %}
+			{% endif %}
 		
-	{% endif %}
-	{% if section.heading == "Projects" %}
-		{% for project in site.data.resume.projects %}
-			<h6>{{ project.name }} {% if project.url %} <a href="{{ project.url }}" target="_blank"><i class="fa fa-window-restore" aria-hidden="true"></i></a> {% endif %}<span>{{ project.date }}</span></h6>
-			
-		{% endfor %}
-	{% endif %}
-	{% if section.heading == "Education" %}
-		{% for school in site.data.resume.education %}
-			<h6>{{ school.school_name }} <span>{{ school.date }}</span></h6>
-			<p>{{ school.degree }}</p>
-			<p>{{ school.certificate_1 }}</p>
-			<p>{{ school.certificate_2 }}</p>
-		{% endfor %}
-	{% endif %}
-	{% if section.heading == "Certificates" %}
-		{% for certificate in site.data.resume.certificates %}
-			<h6>{{ certificate.issuer }}</h6>
-			{% for c in certificate.names %}
-				<span>{{ c.name }}</span>
-				{% if c.license %}
-					{% if c.url %}
-						<p>License: <a href="{{ c.url }}" target="_blank">{{ c.license }}</a></p>
-					{% else %}
-						<p>{{ c.license }}</p>
-					{% endif %}
-				{% endif %}
-			{% endfor %}			
-		{% endfor %}
-	{% endif %}
+			{% if section.heading == "Skills" %}
+					{% assign loopindex = 0 %}
+					{% for skill in site.data.resume.skills  %}
+					{% assign loopindex = loopindex | plus: 1 %}
+					{% assign rowfinder = loopindex | modulo: 4 %}
+					
+						{% if rowfinder == '1' or forloop.first %}
+							<ul class="skills">
+						{% endif %}
+							<li>{{ skill.name }} <!-- {{ loopindex }}|{{ rowfinder }} --> </li>
+						{% if rowfinder == 0 %}				
+							</ul><ul class="skills"> 
+						{% endif %}
+						{% if forloop.last %}				
+							</ul>
+						{% endif %}
+
+					{% endfor %}
+				
+			{% endif %}
+			{% if section.heading == "Projects" %}
+				{% for project in site.data.resume.projects %}
+					<h6>{{ project.name }} {% if project.url %} <a href="{{ project.url }}" target="_blank"><i class="fa fa-window-restore" aria-hidden="true"></i></a> {% endif %}<span>{{ project.date }}</span></h6>
+					
+				{% endfor %}
+			{% endif %}
+			{% if section.heading == "Education" %}
+				{% for school in site.data.resume.education %}
+					<h6>{{ school.school_name }} <span>{{ school.date }}</span></h6>
+					<p>{{ school.degree }}</p>
+					<p>{{ school.certificate_1 }}</p>
+					<p>{{ school.certificate_2 }}</p>
+				{% endfor %}
+			{% endif %}
+			{% if section.heading == "Certificates" %}
+				{% for certificate in site.data.resume.certificates %}
+					<h6>{{ certificate.issuer }}</h6>
+					{% for c in certificate.names %}
+						<span>{{ c.name }}</span>
+						{% if c.license %}
+							{% if c.url %}
+								<p>License: <a href="{{ c.url }}" target="_blank">{{ c.license }}</a></p>
+							{% else %}
+								<p>{{ c.license }}</p>
+							{% endif %}
+						{% endif %}
+					{% endfor %}			
+				{% endfor %}
+			{% endif %}
+		</article>
 </section>
 {% endfor %}
 
