@@ -1,0 +1,87 @@
+# Resume settings
+sections:
+  - section:
+    heading: Work Experience
+    icon: fa-briefcase
+  - section:      
+    heading: Skills
+    icon: fa-code
+  - section:      
+    heading: Projects
+    icon: fa-laptop
+  - section:
+    heading: Education
+    icon: fa-book
+  - section:
+    heading: Certificates
+    icon: fa-certificate
+
+jobs: 
+- company_name: Neoverve Inc.
+  date: Jan 2007 - Present
+  title: Front End Developer/Web Designer
+  description: Responsible for creating and customizing Magento and Wordpress themes, consulting on various aspects of client Magento e-commerce websites, as well as troubleshooting and support for hosted client websites. Tasks ranged from creating wireframes and comps to implementing UI/UX designs into production e-commerce sites. Other tasks include maintaining and updating in-house web design projects and WHMCS support system. 
+- company_name: SearchFit/Rightway Gate
+  date: Aug 2006 - Dec 2006
+  title: Web Designer
+  description: Created SEO friendly website templates from Photoshop documents to HTML using the company e-commerce platform, SearchFit. Maintained and updated in-house e-commerce websites to achieve marketing and SEO goals.
+- company_name: Peak Wireless Inc.
+  date: Jul 2003 - Aug 2006
+  title: Graphic Designer/Web Designer
+  description: Responsible for the creation of multiple company websites. Other responsibilities included creation of various print marketing materials such as business cards, onesheets/brochures, and presentation slides.
+
+skills:
+- name: Photoshop
+- name: Illustrator
+- name: UI/UX
+- name: HTML
+- name: CSS
+- name: SCSS/LESS
+- name: Javascript
+- name: Jquery
+- name: PHP
+- name: Magento
+- name: Wordpress
+- name: Jekyll
+- name: Git
+
+projects:
+- project:
+  name: tomle.me
+  date: Present
+  url: http://www.tomle.me/
+- project:
+  name: GoZolt
+  date: 2015 - 2016 
+- project:
+  name: Focal Pointe Data Solutions
+  date: 2015
+  url: http://www.fpdatasolutions.com/
+- project:
+  name: Bay State Alarm Security Integrators
+  date: 2015
+  url: http://www.bsasi.com/
+- project:
+  name: Tribal Hollywood
+  date: 2014
+  url: http://www.tribalhollywood.com/
+
+education:
+- school_name: California State University San Marcos
+  date: 2016
+- school_name: MiraCosta College
+  date: 1999 - 2006
+  degree: Associate of Arts (A.A.) - Visual Arts (2006)
+
+certificates:
+- certificate: 
+  issuer: Magento
+  names:
+    - name: Front End Magento Certified Developer (2013)
+      license: xa2dtt526
+      url: http://www.magentocommerce.com/certification/directory/dev/268040/
+- certificate:
+  issuer: MiraCosta College 
+  names: 
+    - name: Certificate of Achievement in CSU General Education - Honors (2016)
+    - name: Certification of Achievement in Arts and Technology (2007)

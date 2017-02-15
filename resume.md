@@ -1,0 +1,116 @@
+---
+layout: resume
+title: Resume
+permalink: /resume/
+body-class: resume
+---
+<section>
+	<h1>Front End Developer & Designer</h1>
+	<p>Dedicated professional front end developer and designer with over 10 years experience in the web industry. </p>
+</section>
+
+{% for section in site.data.resume.sections %}
+<section>
+	
+		<h2><i class="fa {{ section.icon }}" aria-hidden="true"></i> {{ section.heading }}</h2>
+		<article>
+			{% if section.heading == "Work Experience" %}
+				{% for job in site.data.resume.jobs %}
+					<h6>{{ job.company_name }} <span>{{ job.date }}</span></h6>
+					<p><span>{{ job.title }}</span>{{ job.description }}</p>
+				{% endfor %}
+			{% endif %}
+		
+			{% if section.heading == "Skills" %}
+					{% assign loopindex = 0 %}
+					{% for skill in site.data.resume.skills  %}
+					{% assign loopindex = loopindex | plus: 1 %}
+					{% assign rowfinder = loopindex | modulo: 4 %}
+					
+						{% if rowfinder == '1' or forloop.first %}
+							<ul class="skills">
+						{% endif %}
+							<li>{{ skill.name }} <!-- {{ loopindex }}|{{ rowfinder }} --> </li>
+						{% if rowfinder == 0 %}				
+							</ul><ul class="skills"> 
+						{% endif %}
+						{% if forloop.last %}				
+							</ul>
+						{% endif %}
+
+					{% endfor %}
+				
+			{% endif %}
+			{% if section.heading == "Projects" %}
+				{% for project in site.data.resume.projects %}
+					<h6>{{ project.name }} {% if project.url %} <a href="{{ project.url }}" target="_blank"><i class="fa fa-window-restore" aria-hidden="true"></i></a> {% endif %}<span>{{ project.date }}</span></h6>
+					
+				{% endfor %}
+			{% endif %}
+			{% if section.heading == "Education" %}
+				{% for school in site.data.resume.education %}
+					<h6>{{ school.school_name }} <span>{{ school.date }}</span></h6>
+					<p>{{ school.degree }}</p>
+					<p>{{ school.certificate_1 }}</p>
+					<p>{{ school.certificate_2 }}</p>
+				{% endfor %}
+			{% endif %}
+			{% if section.heading == "Certificates" %}
+				{% for certificate in site.data.resume.certificates %}
+					<h6>{{ certificate.issuer }}</h6>
+					{% for c in certificate.names %}
+						<span>{{ c.name }}</span>
+						{% if c.license %}
+							{% if c.url %}
+								<p>License: <a href="{{ c.url }}" target="_blank">{{ c.license }}</a></p>
+							{% else %}
+								<p>{{ c.license }}</p>
+							{% endif %}
+						{% endif %}
+					{% endfor %}			
+				{% endfor %}
+			{% endif %}
+		</article>
+</section>
+{% endfor %}
+
+
+<!-- 
+<section>
+	{% for education in site.data.resume %}
+		<h2>{{ education.heading }}</h2>
+		{% for school in education.education %}
+			<h6>{{ school.school_name }} <span>{{ school.date }}</span></h6>
+		{% endfor %}
+	{% endfor %}
+</section>
+
+<section>
+	<h3>Projects</h3>
+</section>
+
+<section>
+	<h3>Skills</h3>
+	<ul>
+		<li>Photoshop</li>
+		<li>Illustrator</li>
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>Javascript</li>
+		<li>Jquery</li>
+		<li>PHP</li>
+		<li>Jekyll</li>
+		<li>Magento</li>
+		<li>Wordpress</li>
+	</ul>
+</section>
+
+
+<section>
+	<h3>Certification</h3>
+	<h6>Front End Magento Certified Developer <span>Aug 2013</span></h6>
+	<p>License Number: <a href="http://www.magentocommerce.com/certification/directory/dev/268040/" target="_blank">xa2dtt5269</a></p>
+	<h6>Certificate of Achievement in CSU General Education - Honors<span>May 2016</span></h6>
+	<h6>Certification of Achievement in Arts and Technology <span>May 2007</span></h6>
+
+</section> -->

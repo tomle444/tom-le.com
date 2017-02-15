@@ -1,0 +1,69 @@
+---
+# Only the main.scss Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Source+Serif+Pro|Bree+Serif|Source+Sans+Pro');// Define defaults for each variable.
+
+$base-font-family: "Crimson Text", Georgia, serif !default; 
+$base-header-font-family: "Source Serif Pro", Georgia, serif !default; 
+$alt-header-font-family: "Source Serif Pr", Georgia, serif !default; 
+$base-font-size:   100% !default;
+$base-font-weight: 400 !default;
+$small-font-size:  $base-font-size * 0.875 !default;
+$base-line-height: 1.5 !default;
+
+$spacing-unit:     40px !default;
+
+$text-color:       #000 !default;
+$background-color: #f9f9f9 !default;
+$brand-color:      #2a7ae2 !default;
+
+$grey-color:       #828282 !default;
+$grey-color-light: lighten($grey-color, 40%) !default;
+$grey-color-dark:  darken($grey-color, 25%) !default;
+
+// Width of the content area
+$content-width:    1000px !default;
+$on-palm:          600px !default;
+$on-laptop:        800px !default;
+
+// Breakpoints
+$bp-xlarge:			1200px;
+$bp-large:			1024px;
+$bp-medium:			768px;
+$bp-small:			525px;
+$bp-xsmall:			425px;
+$bp-xxsmall:		320px;
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//   .wrapper {
+//     padding-right: $spacing-unit / 2;
+//     padding-left: $spacing-unit / 2;
+//   }
+// } 
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin min-width($bp) {
+  @media screen and (min-width: $bp + 1) {
+    @content;
+  }
+}
+@mixin max-width($bp) {
+  @media screen and (max-width: $bp) {
+    @content;
+  }
+}
+
+// Import partials.
+@import
+  "tomle/base",
+  "tomle/layout",
+  "tomle/syntax-highlighting",
+  "tomle/font-awesome",
+  "tomle/custom"
+;
