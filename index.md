@@ -25,6 +25,9 @@ body-class: index
     <a href="{{ '/images/work/project-guilcon.jpg' | relative_url }}" title="" data-lightbox-gallery="gallery" data-lightbox-title="" class="lightbox">
         <img src="{{ '/images/work/project-guilcon-slide.jpg' | relative_url }}" alt="Guilcon">
     </a>
+    <a href="{{ '/images/work/project-tunnelroad.jpg' | relative_url }}" title="" data-lightbox-gallery="gallery" data-lightbox-title="" class="lightbox">
+        <img src="{{ '/images/work/project-tunnelroad-slide.jpg' | relative_url }}" alt="Guilcon">
+    </a>
 </div>
 
 <div class="slider-nav">
@@ -39,6 +42,7 @@ body-class: index
     
     <img src="{{ '/images/work/thumbnails/project-thumbnail-kingbaby.jpg' | relative_url }}" alt="Great Russian Gifts" width="200">
     <img src="{{ '/images/work/thumbnails/project-thumbnail-guilcon.jpg' | relative_url }}" alt="Great Russian Gifts" width="200">
+    <img src="{{ '/images/work/thumbnails/project-thumbnail-tunnelroad.jpg' | relative_url }}" alt="Tunnel Road" width="200">
   
   
    
