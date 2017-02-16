@@ -358,6 +358,8 @@ p, span, ul li {
   }
   .footer-copyright {
     text-align: left;
+    font-size: 11px;
+    clear: both;
   }
   @include min-width($bp-medium){
     float: left;
