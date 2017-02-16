@@ -357,12 +357,11 @@ p, span, ul li {
     display: none;
   }
   .footer-copyright {
-    font-size: 12px;
     text-align: left;
   }
   @include min-width($bp-medium){
     float: left;
-    width: 45%;
+    width: 50%;
   }
 }
 
@@ -371,8 +370,19 @@ p, span, ul li {
 .social-media-list {
   list-style: none;
   margin-left: 0;
+  float: left;
+  display: block;
+  clear: both;
+  width: auto;
   li {
     display: inline-block;
+    margin: auto;
+    padding: 0 5px 0 0;
+    a {
+      i {
+        font-size: 20px;
+      }
+    }
   }
 }
 
