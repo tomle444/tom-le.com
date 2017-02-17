@@ -26,6 +26,11 @@ p, span, ul li {
   font-family: "Source Sans Pro";
 }
 
+a {
+  -webkit-transition: color 0.2s;
+  transform: color 0.2s;
+}
+
 /**
  * Responsive Font Sizes
  */
@@ -88,19 +93,21 @@ p, span, ul li {
     right:0;
     bottom:0;
     background-color:#fff; /* change if the mask should have another color then white */
-    z-index:99; /* makes sure it stays on top */
+    z-index:999; /* makes sure it stays on top */
 }
 
 #status {
-    width:200px;
-    height:200px;
+    width:120px;
+    height:120px;
     position:absolute;
+    transform:translate(-50%, -50%);
     left:50%; /* centers the loading animation horizontally one the screen */
     top:50%; /* centers the loading animation vertically one the screen */
-    background-image:url(../img/status.gif); /* path to your loading animation */
+    background-image:url(../images/loading.gif); /* path to your loading animation */
+    background-size: 220px;
     background-repeat:no-repeat;
     background-position:center;
-    margin:-100px 0 0 -100px; /* is width and height divided by two */
+    //margin:-100px 0 0 -100px; /* is width and height divided by two */
 }
 
 /**
@@ -348,23 +355,32 @@ p, span, ul li {
   border-top: 1px solid $grey-color-light;
   padding: $spacing-unit 0;
   text-align: center;
+  a {
+    color: #fff;
+  }
+  .footer-copyright {
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.8;
+    clear: both;
+    span {
+      display: block;
+    }
+  }
 }
 .footer-info {
-  text-align: left;
+  text-align: center;
+  @include min-width($bp-medium){
+    margin: auto;
+    width: 50%;
+  }
   .footer-heading {
     font-size: 16px;
     margin-bottom: $spacing-unit / 2;
     display: none;
   }
-  .footer-copyright {
-    text-align: left;
-    font-size: 11px;
-    clear: both;
-  }
-  @include min-width($bp-medium){
-    float: left;
-    width: 50%;
-  }
+  
+  
 }
 
 
@@ -372,17 +388,16 @@ p, span, ul li {
 .social-media-list {
   list-style: none;
   margin-left: 0;
-  float: left;
   display: block;
   clear: both;
   width: auto;
   li {
     display: inline-block;
     margin: auto;
-    padding: 0 5px 0 0;
+    padding: 0 8px 0 0;
     a {
       i {
-        font-size: 20px;
+        font-size: 16px;
       }
     }
   }
