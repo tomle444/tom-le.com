@@ -37,6 +37,9 @@ body-class: index
     <a href="{{ '/images/work/project-blazers.jpg' | relative_url }}" title="" data-lightbox-gallery="gallery" data-lightbox-title="" class="lightbox">
         <img src="{{ '/images/work/project-blazers-slide.jpg' | relative_url }}" alt="Blazers">
     </a>
+    <a href="{{ '/images/work/project-greenstart-slide.jpg' | relative_url }}" title="" data-lightbox-gallery="gallery" data-lightbox-title="" class="lightbox">
+        <img src="{{ '/images/work/project-greenstart-slide.jpg' | relative_url }}" alt="Greenstart">
+    </a>
 </div>
 
 <div class="slider-nav">
@@ -56,10 +59,7 @@ body-class: index
     <img src="{{ '/images/work/thumbnails/project-thumbnail-guilcon.jpg' | relative_url }}" alt="Guilcon" width="200">
     <img src="{{ '/images/work/thumbnails/project-thumbnail-compustamp.jpg' | relative_url }}" alt="Compustamp" width="200">
     <img src="{{ '/images/work/thumbnails/project-thumbnail-blazers.jpg' | relative_url }}" alt="Blazers" width="200">
-    
-  
-  
-   
+    <img src="{{ '/images/work/thumbnails/project-thumbnail-greenstart.jpg' | relative_url }}" alt="Greenstart" width="200"> 
   
 </div>
 
