@@ -18,12 +18,14 @@ tagline: Designer | Developer
 email: tomle444@gmail.com
 copyright: tom-le.com 
 description: > # this means to ignore newlines until "baseurl:"
-  Designer and front end web developer who lives in San Diego California. Has experience with Magento and Wordpress as well as graphic design in Photoshop and Illustrator.
+  Designer and front end web developer who lives in San Diego California. Has experience with Magento and Wordpress as well as graphic design with Photoshop and Illustrator.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://www.tom-le.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: tomle444
 github_username:  tomle444
 linkedin_username:  tomle44
+behance_username:  tomle444eb6e
+dribbble_username:  
 
 # Build settings
 markdown: kramdown
