@@ -228,6 +228,9 @@ a {
       left: 0;
     }
   }
+  @include media-query($bp-medium){
+    border-width: 8px;
+  }
 }
 
 .slider-nav {
@@ -245,13 +248,19 @@ a {
     z-index: 99;
     background-color: transparent;
     border: 0;
-    font-size: 3vh;
+    font-size: 6vh;
     outline: none;
     &.slick-next {
       right: -5%;
     }
     &.slick-prev {
       left: -5%;
+    }
+  }
+
+  @include media-query($bp-medium){
+    img {
+      border-width: 8px;
     }
   }
 }
