@@ -1,10 +1,31 @@
----
-layout: default
----
-<section class="page">
-  <div class="page-content">
-    {{ content }}
-    <a href="javascript:history.back(-1);">Back</a>
-  </div>
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
-</section>
+  {% include head.html %}
+
+  <body class="{{ page.body-class }}">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+
+    {% include nav.html %}
+    
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <a class="page-link prev" href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+        <a class="page-link next" href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+        <section id="home" class="page home">
+          <div class="cover-container container">
+            <div class="row">
+              {{ content }}              
+            </div>
+          </div>          
+        </section>
+        
+      </div>
+    </div>   
+{% include footer.html %}
+  </body>
+
+</html>
