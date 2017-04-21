@@ -20,12 +20,6 @@ $(window).on('load', function() { // makes sure the whole site is loaded
 
 $(function () {
 
-
-	
-
-
-
-
     windowWidth = window.innerWidth;	
     siteWidth = $('.site-wrapper').width();
     
@@ -37,6 +31,25 @@ $(function () {
     $(window).on('resize', function(){
     	// if the window gets resized, reset the window width variable to the new resized width
     	windowWidth = window.innerWidth;
+    	console.log(windowWidth);
+    	if(currentSlide != 1){
+   			// animate the container to the right
+			$('.site-wrapper-inner').animate({ 
+				scrollLeft: 0
+				}, { duration: 1000, queue: false 
+			});		 
+
+			$('.bg-2').animate({
+				'background-position-x': ('+='+windowWidth * 0.1) + 'px'}, 
+			{ duration: 1000, queue: false 
+			});
+
+			$('.bg-1').animate({
+				'background-position-x': ('+='+windowWidth * 0.05) + 'px'}, 
+			{ duration: 1000, queue: false 
+			});
+			currentSlide = 1;
+		}
     });
 
     // init functions
@@ -115,12 +128,12 @@ $(function () {
     	$('a.next').on('click', _.throttle(function(e){
     		animateBgNext();
     		$('nav.bottom a.active').removeClass('active').next().addClass('active');
-    	}, 2000));
+    	}, 1000));
 
     	$('a.prev').on('click',  _.throttle(function(e){
    			animateBgPrev();		
    			$('nav.bottom a.active').removeClass('active').prev().addClass('active'); 
-    	}, 2000));
+    	}, 1000));
 
     	$('.slide-home').on('click', _.throttle( function(e){
     		if(currentSlide != 1){
@@ -142,7 +155,7 @@ $(function () {
 				currentSlide = 1;
 			}
 
-    	}, 2000));
+    	}, 1000));
 
 
 
@@ -196,6 +209,7 @@ $(function () {
 				});				
 
 				currentSlide++;
+				
     		}
     		
 		}
@@ -256,6 +270,8 @@ $(function () {
 
     	/***
 		**	Get Info - Portfolio
+		**  I could have put this data into a jekyll .yaml file and looped through it using liquid but using JS was quicker
+		**  This could easily be MySql data if this site was in PHP
 		***/
 		var json = [{
 		    "id" : "zolt",  
@@ -377,7 +393,6 @@ $(function () {
 		});
 
 		$('.item').on('mouseout', function(){ 
-			console.log('jhkh');
 			$(this).children('.item-overlay').stop().fadeOut(300);
 		});
 
@@ -411,32 +426,45 @@ $(function () {
 	        };
 
 	    // gather all the initial scrollLeft positions of each section and put into an array
-	    var sectionsObject = {
+	    sectionsObject = {
 	    	home: $('#home').offset().left,
 	    	work: $('#work').offset().left,
 	    	about: $('#about').offset().left,
 	    	contact: $('#contact').offset().left,
 
 	    }
+
+	    $(window).on('resize', function(){
+			sectionsObject = {
+		    	home: $('#home').offset().left,
+		    	work: $('#work').offset().left,
+		    	about: $('#about').offset().left,
+		    	contact: $('#contact').offset().left,
+
+		    }
+		    console.log(sectionsObject.work);
+		});
     	
     	$('.bottom a').each(function(i){
     		$(this).on('click', function(e){
     			currentScrollPos = $('.site-wrapper-inner').scrollLeft();
     			
     			
-    			var position = $(this).attr("data-nav");
+    			var dataNav = $(this).attr("data-nav");
 
+    			
+    			var position = 0;
     			// get initial scroll left positions 
-    			if(position == 'home'){
+    			if(dataNav == 'home'){
     				position = 0
-    			} else if(position == 'work'){
+    			} else if(dataNav == 'work'){
     				position = sectionsObject.work
-    			} else if(position == 'about'){
+    			} else if(dataNav == 'about'){
     				position = sectionsObject.about
-    			} else if(position == 'contact'){
+    			} else if(dataNav == 'contact'){
     				position = sectionsObject.contact
     			}
-    			
+    			console.log(position);
 
 	   			// animate the container to the right
 				$('.site-wrapper-inner').animate({ 
