@@ -87,7 +87,7 @@ $(function () {
 
     var navOnMouseWheel = function(){ 	
     	// added _.throttle function to delay animation and counter from firing too much ** THANKS to underscore.js **
-    	$('.site-wrapper-inner').on('mousewheel', _.throttle(function(event, delta) {
+    	$('.site-wrapper-inner').on('DOMMouseScroll mousewheel', _.throttle(function(event, delta) {
 	        event.preventDefault();
 	        var scrollLeftMouseWheel = $(this).scrollLeft();
 	       
