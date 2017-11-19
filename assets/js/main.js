@@ -56,7 +56,7 @@ $(function () {
     var run = function(){
     	if($('body.index').length){
 
-	    	navOnMouseWheel();
+	    	//navOnMouseWheel();
 	    	navOnClick();
 	    	bottomNavigationClick();
     	}
@@ -70,7 +70,7 @@ $(function () {
 
     	// when user clicks on the navigation menu link, open up links to sections
     	$('.menu-icon').on('click', function(){
-    		//console.log('clicked');
+    		console.log('clicked');
     		$('.nav-overlay').toggleClass('active not-active');
     	});
     }
@@ -86,39 +86,20 @@ $(function () {
     }
 
     var navOnMouseWheel = function(){ 	
+    	var scroll = $(window).scrollLeft();
+    	var thisScrollLeft = $('.site-wrapper-inner').scrollLeft();
     	// added _.throttle function to delay animation and counter from firing too much ** THANKS to underscore.js **
-    	$('.site-wrapper-inner').on('DOMMouseScroll mousewheel', _.throttle(function(event, delta) {
-	        event.preventDefault();
-	        var scrollLeftMouseWheel = $(this).scrollLeft();
-	       
-	        //console.log(event.deltaX, event.deltaY, event.deltaFactor, scrollLeftMouseWheel, currentScrollPos);
-
-	        // on mousewheel up, scroll bg to the left
-	        // on mousewheel down, scroll bg to the right
-	        // when the mousewheel is at the beginning, only animate to the next and don't animate below 0
-        
-		    if(currentSlide == 1){
-			    if(event.deltaY < 0){
-			    	animateBgNext();
-			    	$('nav.bottom a.active').removeClass('active').next().addClass('active');
-			    } 
-			} else { 
-				if(event.deltaY < 0){
-					if(currentSlide != slideCount){
-		    			animateBgNext();
-		    			$('nav.bottom a.active').removeClass('active').next().addClass('active');
-		    		}
-		    	} else {
-		    		animateBgPrev();
-		    		$('nav.bottom a.active').removeClass('active').prev().addClass('active'); 
-		    	}
-		    }
-		    	
-	    	// set the current scroll position to the scroll left position of the container while the mousewheel event is active
-	    	currentScrollPos = scrollLeftMouseWheel;
-	        return false;
+    	$('.site-wrapper-inner').on('DOMMouseScroll mousewheel', function(event, delta) {
+    		//console.log(scroll, delta, this.scrollLeft );
 	        
-	    }, 2000));
+        		 thisScrollLeft = thisScrollLeft - (delta * 40);
+        		 event.preventDefault();
+        		 console.log(thisScrollLeft);
+        		
+    		
+    		
+	        
+	    });
     }
     
     var navOnClick = function(){
@@ -166,6 +147,78 @@ $(function () {
 		   $(this).addClass("active");
 		});
     	
+    }
+
+    var animateBgRight = function(delta){
+
+    	// animate the container to the left 
+
+        $('.site-wrapper-inner').scrollLeft() -= (delta * 40);
+        
+
+        	
+
+    	
+    	// scroll position is at the beginning position
+  //   	if(currentScrollPos == 0 || currentScrollPos != thisScrollLeft ){ 		
+    		
+  //   		if( currentSlide != slideCount ){
+    			
+		//     	// set the new current scroll posittion to local variable
+		// 		currentScrollPos = thisScrollLeft;				
+
+				$('.bg-2').animate({
+					'background-position-x': ('+='+windowWidth * 0.1) + 'px'}, 
+				{ duration: 1000, queue: false 
+				});
+
+				$('.bg-1').animate({
+					'background-position-x': ('+='+windowWidth * 0.05) + 'px'}, 
+				{ duration: 1000, queue: false 
+				});				
+
+		// 		currentSlide++;
+				
+  //   		}
+    		
+		// }
+		//return false;
+    }
+
+    var animateBgLeft = function(delta){
+
+    	// animate the container to the left 
+
+        $('.site-wrapper-inner').scrollLeft() += (delta * 40);
+        
+
+        	
+
+    	
+    	// scroll position is at the beginning position
+  //   	if(currentScrollPos == 0 || currentScrollPos != thisScrollLeft ){ 		
+    		
+  //   		if( currentSlide != slideCount ){
+    			
+		//     	// set the new current scroll posittion to local variable
+		// 		currentScrollPos = thisScrollLeft;				
+
+				$('.bg-2').animate({
+					'background-position-x': ('-='+windowWidth * 0.1) + 'px'}, 
+				{ duration: 1000, queue: false 
+				});
+
+				$('.bg-1').animate({
+					'background-position-x': ('-='+windowWidth * 0.05) + 'px'}, 
+				{ duration: 1000, queue: false 
+				});				
+
+		// 		currentSlide++;
+				
+  //   		}
+    		
+		// }
+		//return false;
     }
 
     var animateBgNext = function(){
@@ -401,12 +454,21 @@ $(function () {
 			closeDetails();
 		});
 
+		// Close navigation
+		$('.nav-overlay .overlay-close').on('click', function(){
+			closeNav();
+		});
+
 
 		function closeDetails(){
 			overlayResults.fadeOut(100); 
 			overlayProject.html(' ');  
 			overlayProject.attr('id', '');
 			
+	    }
+
+	    function closeNav(){
+	    	$('.nav-overlay ').removeClass('active').addClass('not-active');
 	    }
 
     	return false;
@@ -429,7 +491,7 @@ $(function () {
 	    sectionsObject = {
 	    	home: $('#home').offset().left,
 	    	work: $('#work').offset().left,
-	    	about: $('#about').offset().left,
+	    	//about: $('#about').offset().left,
 	    	contact: $('#contact').offset().left,
 
 	    }

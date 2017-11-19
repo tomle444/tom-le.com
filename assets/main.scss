@@ -29,25 +29,19 @@ $base-header-font-color:       #000 !default;
 $base-header-font-color-1:       #fff !default;
 
 // Width of the content area
-$content-width:    1366px !default;
-$on-palm:          600px !default;
+$content-width:    1024px !default;
+$on-mobile:          414px !default;
 $on-laptop:        800px !default;
+$on-tablet:        768px !default;
 
 // Breakpoints
 $bp-xlarge:			1200px;
-$bp-large:			1024px;
+$bp-large:			1024px; 
 $bp-medium:			768px;
 $bp-small:			525px;
 $bp-xsmall:			425px;
 $bp-xxsmall:		320px;
 
-// Use media queries like this:
-// @include media-query($on-palm) {
-//   .wrapper {
-//     padding-right: $spacing-unit / 2;
-//     padding-left: $spacing-unit / 2;
-//   }
-// } 
 @mixin media-query($device) {
   @media screen and (max-width: $device) {
     @content;
