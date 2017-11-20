@@ -6,7 +6,7 @@ layout: home
 body-class: index
 ---
 
-<div id="main-hero" class="other-work-links">
+<!-- <div id="main-hero" class="other-work-links">
     <a href="{{ '/images/work/project-neoverve.jpg' | relative_url }}" title="" data-lightbox-gallery="gallery" data-lightbox-title="" class="lightbox">
         <img src="{{ '/images/work/project-neoverve-slide.jpg' | relative_url }}" alt="Neoverve">
     </a>
@@ -62,9 +62,4 @@ body-class: index
     <img src="{{ '/images/work/thumbnails/project-thumbnail-greenstart.jpg' | relative_url }}" alt="Greenstart" width="200"> 
   
 </div>
-
-<script>
-
-
-
-</script>
+ -->

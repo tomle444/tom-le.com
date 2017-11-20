@@ -1,13 +1,13 @@
 ---
 # Only the main.scss Sass file needs front matter (the dashes are enough)
 ---
-@charset "utf-8";
-@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Source+Serif+Pro|Bree+Serif|Source+Sans+Pro');// Define defaults for each variable.
 
-$base-font-family: "Crimson Text", Georgia, serif !default; 
-$base-header-font-family: "Source Serif Pro", Georgia, serif !default; 
-$alt-header-font-family: "Source Serif Pr", Georgia, serif !default; 
-$base-font-size:   100% !default;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i,800,800i,900,900i&subset=latin-ext');// Define defaults for each variable.
+
+$base-font-family: "Questrial", "Lato", Georgia, serif !default; 
+$base-header-font-family: "Montserrat" ,  Helvetica, Arial, serif !default; 
+$alt-header-font-family: "Questrial", "Lato", Georgia, serif !default; 
+$base-font-size:   1vw !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
@@ -15,15 +15,21 @@ $base-line-height: 1.5 !default;
 $spacing-unit:     40px !default;
 
 $text-color:       #000 !default;
+
 $background-color: #f9f9f9 !default;
-$brand-color:      #2a7ae2 !default;
+$brand-color:      #725f5f !default;
+$brand-color-1:      #725f5f !default;
+
 
 $grey-color:       #828282 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
 $grey-color-dark:  darken($grey-color, 25%) !default;
 
+$base-header-font-color:       #000 !default;
+$base-header-font-color-1:       #fff !default;
+
 // Width of the content area
-$content-width:    1000px !default;
+$content-width:    1366px !default;
 $on-palm:          600px !default;
 $on-laptop:        800px !default;
 
@@ -65,5 +71,7 @@ $bp-xxsmall:		320px;
   "tomle/layout",
   "tomle/syntax-highlighting",
   "tomle/font-awesome",
+  //"tomle/cover",
+  "tomle/carousel",
   "tomle/custom"
 ;

@@ -3,16 +3,120 @@
 
   {% include head.html %}
 
-  <body  class="{{ page.body-class }}">
+  <body class="{{ page.body-class }}">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
 
-    {% include header.html %}
+    <div class="overlay-results">
+        <div class="overlay-modal vcenter">
+            <a href="javascript:void(0);" class="overlay-close" >
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="overlay-project"></div>
+        </div>
+    </div>
 
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        {{ content }}
+    {% include nav.html %}
+    
+    <div class="site-wrapper bg-1 bg">
+      <div class="site-wrapper-inner">
+        <a class="page-link prev fa fa-angle-left" href="#"></a>
+        <a class="page-link next" href="#"><span class="fa fa-angle-right" aria-hidden="true"></span></a>
+        <section id="home" class="page home">
+          <div class="cover-container container">
+            <div class="row">
+              <h1>Hello, <small>my name is Tom.</small> <small>I design and build websites.</small></h1>
+              <p class="lead">I have experience with</p>
+                <div class="skill-icons">
+                  <img src="{{ 'images/icons/icon_html5.png' | relative_url }}" alt="">
+                  <img src="{{ 'images/icons/icon_css3.png' | relative_url }}" alt="">
+                  <img src="{{ 'images/icons/icon_js.png' | relative_url }}" alt="">
+                  <br />                  
+                  <img src="{{ 'images/icons/icon_magento.png' | relative_url }}" alt="">
+                  <img src="{{ 'images/icons/icon_wordpress.png' | relative_url }}" alt="">                  
+                  <img src="{{ 'images/icons/icon_git.png' | relative_url }}" alt="">
+                  <img src="{{ 'images/icons/icon_grunt.png' | relative_url }}" alt="">
+                  <img src="{{ 'images/icons/icon_jquery.png' | relative_url }}" alt="">
+                  <img src="{{ 'images/icons/icon_jekyll.png' | relative_url }}" alt="">
+                </div>
+            </div>
+          </div>
+          
+        </section>
+        <section id="work" class="page view-1">
+          <div class="cover-container">
+            <div class="row ">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="row no-gutters display-flex">
+                  <h2 class="work-header">Here is some of my work</h2>
+                  <a href="#" data-toggle="lightbox" data-id="neoverve" class="item ">
+                    <div class="item-overlay"><h4>Neoverve</h4> <i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+                    <img src="{{ 'images/work/thumbnails/project-thumbnail-neoverve.jpg' | relative_url }}{{ 'images/work/thumbnails/project-thumbnail-neoverve.jpg' | relative_url }}" class="img-fluid">
+                  </a>
+                  <a href="#" data-toggle="lightbox" data-id="fpdatasolutions" class="item ">
+                    <div class="item-overlay"><h4>Focal Point Data Solutions</h4> <i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+                    <img src="{{ 'images/work/thumbnails/project-thumbnail-fpdatasolutions.jpg' | relative_url }}" class="img-fluid">
+                  </a>
+                  <a href="#" data-toggle="lightbox" data-id="thedancesocks" class="item ">
+                    <div class="item-overlay"><h4>The Dance Socks</h4> <i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+                    <img src="{{ 'images/work/thumbnails/project-thumbnail-thedancesocks.jpg' | relative_url }}" class="img-fluid">
+                  </a>
+                  <a href="#" data-toggle="lightbox" data-id="bsasi" class="item ">
+                    <div class="item-overlay"><h4>Bay State Alarm Security Integrators</h4> <i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+                    <img src="{{ 'images/work/thumbnails/project-thumbnail-bsasi.jpg' | relative_url }}" class="img-fluid">
+                  </a>
+                  <a href="#" data-toggle="lightbox" data-id="tribalhollywood" class="item ">
+                    <div class="item-overlay"><h4>Tribal Hollywood</h4> <i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+                    <img src="{{ 'images/work/thumbnails/project-thumbnail-tribalhollywood.jpg' | relative_url }}" class="img-fluid">
+                  </a>
+                  <a href="#" data-toggle="lightbox" data-id="zolt" class="item ">
+                    <div class="item-overlay"><h4>Zolt</h4> <i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+                    <img src="{{ 'images/work/thumbnails/project-thumbnail-zolt.jpg' | relative_url }}" class="img-fluid">
+                  </a>
+                  <a href="#" data-toggle="lightbox" data-id="womenonguard" class="item ">
+                    <div class="item-overlay"><h4>Women on Guard</h4> <i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+                    <img src="{{ 'images/work/thumbnails/project-thumbnail-womenonguard.jpg' | relative_url }}" class="img-fluid">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="about" class="page view-2">
+          <div class="cover-container">
+            <h1>About</h1>
+            <p>I enjoy making websites that are clean and functional.</p>
+
+<p>My skills range from UI/UX design to front-end development. I am always keeping up with the latest web technologies and design trends. Currently, I am a front-end web developer and designer at a Magento Hosting and Development company.</p>
+
+<p>My specialties include HTML, CSS, Responsive Web Design, Graphic Design, Magento, Wordpress, Jekyll, Javascript, and Jquery.</p>
+          </div>
+        </section>
+        <section id="contact" class="page view-3">
+          <div class="cover-container">
+            <h1>Contact</h1>
+            <a href=""></a>
+          </div>
+        </section>
+
+        <div class="bg-2 bg"></div>
+
+        
+
       </div>
-    </main>
-
+    </div>
+    
+<nav class="bottom" role="bottom-navigation">
+  <a href="javascript:void(0);" class="slide-home active" data-nav="home">Home</a>
+  <a href="javascript:void(0);" class="slide-work" data-nav="work">Work</a>
+  <a href="javascript:void(0);" class="slide-about" data-nav="about">About</a>
+  <a href="javascript:void(0);" class="slide-contact" data-nav="contact">Contact</a>
+</nav>
     {% include footer.html %}
 
   </body>

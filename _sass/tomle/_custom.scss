@@ -1,13 +1,46 @@
+
+html,
 body {
-  position: relative;
+  padding: 0;
+  margin: auto;
+  position: relative;  
+  
+  text-shadow: none;
+  min-height: 600px;
+  height: 100%;
+  
+  font-family: $base-font-family;
 }
 
+html,
+body {
+  &.index {
+    overflow-y: hidden;
+    background-color: #ece6e6;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    .site-nav {
+      #logo {
+        path {
+          fill: rgba(255,255,255,0.9);
+        }
+      }
+      .menu-icon {
+        > svg path {
+          fill: rgba(255,255,255,0.9);
+        }
+      }
+    }
+  }
+}
 /**
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
   font-family: $base-header-font-family;
-  line-height: 200%;
+  color: $base-header-font-color;
+  font-weight: 900;
 }
 h1 {font-size: 225%;}
 h2 {font-size: 200%;}
@@ -18,17 +51,26 @@ h6 {font-size: 115%;}
 
 body {
   min-height: 100%;
-  overflow-y: scroll;
 }
 
 p, span, ul li {
   font-size: 96%;
-  font-family: "Source Sans Pro";
 }
 
 a {
   -webkit-transition: color 0.2s;
   transform: color 0.2s;
+  &:hover, &:active, &:focus {
+    text-decoration: none;
+  }
+}
+
+.button-default {
+  background-color: transparent;
+}
+
+img {
+  max-width: 100%; 
 }
 
 /**
@@ -56,9 +98,125 @@ a {
 }
 @include min-width($bp-xlarge){
   body {
-    font-size: 100%;
+    font-size: 1vw;
   }
 }
+
+
+/**
+ *  No Gutters
+ */
+
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+
+/**
+ *  Flexbox
+ */
+
+ .display-flex {
+  display: -webkit-flex; /* Safari */
+  display: -moz-flex; 
+  display: flex;
+ }
+
+
+
+
+/***
+**  Backgrounds
+***/
+.bg {
+  // position: absolute;
+  // top:0;
+  // left:0%;
+  // right:0;
+  // bottom:0;  
+  //background-attachment: fixed;
+  background-position: 0 bottom; 
+  background-repeat: repeat-x;
+  width: 100%;
+}
+
+.bg-1 {
+  background-image:url('../images/bg-1.png');
+  z-index:1;
+  @include max-width($bp-medium){
+    background-size: 150%;
+  }
+}
+
+.bg-2 {
+  background-image:url('../images/bg-2.png');
+  z-index:3;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 30%;
+  @include max-width($bp-medium){
+    background-size: 150%;
+     z-index:2;
+  }
+}
+
+
+/**
+ *  Navigation Overlay
+ */
+
+.nav-overlay {
+  background-color: #000;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1050;
+  margin: auto;
+  text-align: center;
+  color: #fff;  
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  &.not-active {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .trigger {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    .page-link {
+      display: block;
+      font-size: 3.5vw;
+      text-transform: uppercase;
+      font-weight: 900;
+      font-family: $base-header-font-family;
+      padding: 10px;
+      &:hover {
+        color: $brand-color;
+      }
+    }
+  }
+}
+
 
 /***
 **  Overlay
@@ -92,6 +250,7 @@ a {
     left:0;
     right:0;
     bottom:0;
+    min-height: 100%;
     background-color:#fff; /* change if the mask should have another color then white */
     z-index:999; /* makes sure it stays on top */
 }
@@ -110,12 +269,256 @@ a {
     //margin:-100px 0 0 -100px; /* is width and height divided by two */
 }
 
+/***
+**  Site Wrapper
+***/
+//
+//   Issue: Apparently Firefox has an issue with .animate() on an element that is display:table-cell
+//   Fixed this by ditching the Bootstrap Cover and vertically aligning the .containing div within each section
+//
+
+  .site-wrapper {
+    .site-wrapper-inner {
+      .page-link {
+        &.next, &.prev {
+          display: none;
+        }
+      }
+    }
+  }
+
+body.index {
+  .site-wrapper {
+    text-align: center;
+    box-shadow: none;
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+    z-index: 2;
+    .site-wrapper-inner {
+      &:before {
+         content: '';
+          display: inline-block;
+          height: 100%;
+          vertical-align: middle;
+          margin-right: -0.25em; /* Adjusts for spacing */
+      }
+      white-space: nowrap;
+      vertical-align: middle;
+      width: 100%;
+      overflow-y: hidden;
+      height: 100%;
+      .page-link {
+        position: absolute;
+        top: 50%;
+        z-index: 9;
+        font-size: 200%;
+        width: 40px;
+        height: 40px;
+        line-height: 35px;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -moz-border-radius:100px;
+        -o-border-radius:100px;
+        -webkit-border-radius:100px;
+        border-radius:100px;
+        transition: background-color 0.3s ease-in-out;
+        background-color: rgba(0,0,0,0);
+        color: #fff;
+        display: block;
+        border: 2px solid #fff;
+        &.next {
+          right: 2%;
+          padding-left: 4px;
+        }
+        &.prev {
+          left: 2%;
+          padding-right: 4px;
+        }
+        &:hover {
+          background-color: rgba(0,0,0,0.1);
+          border-color: transparent;
+        }
+        span {
+          line-height: 35px;
+          display: block;
+        }
+      }
+      section.page {
+        display: inline-block;      
+        width: 100%;
+        min-height: 100%;
+        vertical-align: top;
+        z-index: 2;
+        position: relative;
+        white-space: normal; // resets the children inheriting the no-wrap from the parent container
+        .cover-container {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin: auto;
+          min-height: 60%;
+          max-width: $content-width;
+          min-width: 80%;
+          -webkit-transform: translate(-50%, -50%);
+          -moz-transform: translate(-50%, -50%);
+          -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          text-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+          h1 {
+            font-size: 4vw;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: $base-header-font-color-1;
+            small {
+              display: block;
+              text-transform: none;
+              font-family: $base-header-font-family;
+              color: $brand-color;
+              font-weight: 700;
+              text-transform: none;
+              font-size: 2vw;
+              line-height: 1.2;
+            }
+          }
+          .skill-icons {
+            
+              img {
+                width: 65px;
+              }
+            
+          }    
+          .other-work-links {
+            img {
+              width: 100%;
+            }
+          }  
+        }
+        p {
+          font-family: $base-header-font-family;
+          font-weight: 700;
+          color: $brand-color;
+          text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+          &.lead {
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+          }
+        }
+      }   
+    }
+  }
+}
+
+
+
+/***
+**  Cover
+***/
+.cover-container {
+  width: 65%; 
+  max-height: 80%;
+  margin: 100px auto;
+}
+
+
+
+/***
+** Carousel 
+***/
+
+// .carousel {
+//   z-index: 3;
+//   min-height: 100vh;
+//   height: 100%;
+//   margin: auto auto 0;
+//   .carousel-inner {
+//     display: inline-block;    
+//   }
+//   .item {
+//     background-color: transparent;
+//   }
+// }
+
+// .carousel-control.left, .carousel-control.right {
+//   background-image: none;
+// }
+
+#work {
+  .cover-container {
+    .display-flex {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      .work-header {
+        color: #fff;
+        flex: 1 100%;
+      }
+      .item {        
+        position: relative;
+        margin: auto;
+        overflow: hidden;
+        max-width: 315px;
+        display: flex;
+        flex: 1 1 0;
+        justify-content: space-around;
+        min-width: 24%;
+        border: 3px solid #FFF;
+        img.img-fluid {
+          transition: all 0.3s ease-in-out;
+          transform: scale(1);
+          max-width: initial !important; 
+          -webkit-backface-visibility: hidden;
+          -webkit-transform: translateZ(0) scale(1.0, 1.0);
+          image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+        }
+        .item-overlay {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0,0,0,0.8); 
+          color: #fff;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          z-index: 9;
+          h4 {
+            color: #fff;
+            font-weight: 300;
+            font-size: 110%;
+            padding: 0 10px;
+          }
+
+        }
+        &:hover {
+           
+            img {
+              transform: scale(1.05);
+            }
+          
+        }
+      }
+    }
+    
+  }
+  .list-group {
+    .list-group-item {
+      font-family: $base-header-font-family;
+      font-weight: 700;
+      background-color: transparent;
+      border: 0;
+    }
+  }
+}
+
 /**
  * Site header
  */
 .site-header {
   min-height: 56px;
-
   // Positioning context for the mobile navigation icon
   position: relative;
 }
@@ -127,30 +530,45 @@ a {
   }
 }
 
-.site-title {
+.site-title, .site-logo {
   font-size: 126%;
   font-weight: 400;
   line-height: 1;
   margin-bottom: 0;
   float: left;
-  color: #000;
+  color: #fff;
+  padding: 10px;
   text-transform: uppercase;
-  font-family: "Crimson Text", serif;
   span {
     font-size: 70%;
     text-transform: none;
     display: block;
-    font-family: "Crimson Text", serif;
   }
 }
 
 .site-nav {
-  float: right;
-  line-height: 56px;
-
-  .menu-icon {
-    display: none;
-  }
+  max-width: $content-width;
+  margin: auto;
+  border: 0;
+  padding: 20px;
+    #logo {
+      path {
+        fill: #000;
+      }
+    }
+    .menu-icon {
+      display: block;
+      float: right;
+      width: 36px;
+      height: 36px;
+      line-height: 0;
+      margin: 10px;
+      padding: 10px;
+      text-align: center;
+      > svg path {
+        fill: #000;
+      }
+    }
 
   .page-link {
     color: $text-color;
@@ -169,25 +587,11 @@ a {
     background-color: $background-color;
     border: 1px solid $grey-color-light;
     border-radius: 5px;
-    text-align: right;
-
-    .menu-icon {
-      display: block;
-      float: right;
-      width: 36px;
-      height: 26px;
-      line-height: 0;
-      padding-top: 10px;
-      text-align: center;
-
-      > svg path {
-        fill: $grey-color-dark;
-      }
-    }
+    text-align: right;    
 
     .trigger {
       clear: both;
-      display: none;
+      //display: none;
     }
 
     &:hover .trigger {
@@ -212,10 +616,7 @@ a {
 ***/
 
 #links, #main-hero {
-  border:20px solid #fff;
   position: relative;
-  background-color: #fff;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   .slick-arrow {
     position: absolute;
     top: 50%;
@@ -232,128 +633,6 @@ a {
     border-width: 8px;
   }
 }
-
-.slider-nav {
-  img {
-    border:20px solid #fff;
-    position: relative;
-    margin: 20px;
-    background-color: #fff;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  }
-  .slick-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 99;
-    background-color: transparent;
-    border: 0;
-    font-size: 6vh;
-    outline: none;
-    &.slick-next {
-      right: -5%;
-    }
-    &.slick-prev {
-      left: -5%;
-    }
-  }
-
-  @include media-query($bp-medium){
-    img {
-      border-width: 8px;
-    }
-  }
-}
-
-/* Dots */
-.slick-slider
-{
-    margin-bottom: 30px;
-}
-
-.slick-dots
-{
-    position: absolute;
-    bottom: -45px;
-    margin-left: 0;
-    display: block;
-
-    width: 100%;
-    padding: 0;
-
-    list-style: none;
-
-    text-align: center;
-}
-.slick-dots li
-{
-    position: relative;
-
-    display: inline-block;
-
-    width: 20px;
-    height: 20px;
-    margin: 0 5px;
-    padding: 0;
-
-    cursor: pointer;
-}
-.slick-dots li button
-{
-    font-size: 0;
-    line-height: 0;
-
-    display: block;
-
-    width: 20px;
-    height: 20px;
-    padding: 5px;
-
-    cursor: pointer;
-
-    color: transparent;
-    border: 0;
-    outline: none;
-    background: transparent;
-}
-.slick-dots li button:hover,
-.slick-dots li button:focus
-{
-    outline: none;
-}
-.slick-dots li button:hover:before,
-.slick-dots li button:focus:before
-{
-    opacity: 1;
-}
-.slick-dots li button:before
-{
-    font-family: 'FontAwesome';
-    font-size: 3vh;
-    line-height: 20px;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 20px;
-    height: 20px;
-
-    content: '\2022';
-    text-align: center;
-
-    opacity: .25;
-    color: black;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-.slick-dots li.slick-active button:before
-{
-    opacity: .75;
-    color: black;
-}
-
 
 /**
  * Site footer
@@ -657,3 +936,231 @@ a {
     }
   }
 }
+
+
+/**
+ *  Navigation Bottom - Flexbox tryout
+ */
+
+ nav.bottom {
+  display: flex;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  z-index: 9;
+  bottom: 5%;
+  a {
+    display: block;
+    font-size: 2vw;
+    color: #fff;
+    font-family: $base-header-font-family;
+    font-weight: 800;
+    margin: 10px;
+    transition: border-bottom-width 0.3s ease-in-out;
+    border-bottom-width: 0px;
+    &:after {
+      content: '';
+      display: block;
+      margin: auto;
+      height: 3px;
+      width: 0px;
+      background: transparent;
+      transition: width .5s ease, background-color .5s ease;
+    }
+    &.active {
+      &:after {
+        width: 100%;
+        background: $brand-color;
+      }
+    }
+  }
+ }
+
+ /**
+  *  Project Overlay
+  */
+
+  .overlay, .overlay-results {
+    display: none;
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    height: 100%; 
+    width: 100%;
+    z-index: 9999;
+    .overlay-modal {      
+      position: absolute;
+      max-width: 1260px;
+      min-height: 400px;
+      overflow: hidden;
+      width: 85%;
+      top: 10%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      //transform: translate(-50%, -50%);
+      .overlay-close {
+        top: 0;
+        right: 0;
+        padding: 10px;
+        color:#fff;
+        position: absolute;
+        float: right;
+        margin-right: 0;
+        padding: 20px;
+        
+        background-color: transparent;
+        background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+        border: 1px solid transparent;
+        border-radius: 0;
+        -webkit-perspective: 1000;
+                -webkit-backface-visibility: hidden;
+                perspective: 1000;
+        span.icon-bar {
+          transition:all 0.3s ease-in-out;
+          background-color: #fff;
+          display: block;
+            width: 20px;
+            height: 2px;
+            border-radius: 0px;
+          &:nth-of-type(2n) {
+             transform: rotate(45deg);
+          }
+          &:nth-of-type(3n) { 
+            margin-top: -2px;
+            transform: rotate(135deg);
+            
+          }
+          &:nth-of-type(4n) {  
+            display: none;  
+          }
+        }
+        &:hover {
+          background-color: #fff;
+          span.icon-bar {
+            background-color: #000;
+          }
+        }
+      }
+      .overlay-project {
+        color: #fff;
+        width: 85%;
+        margin: auto;
+        overflow: hidden;
+
+        h2 {
+          font-size: 30px;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #333;
+          color: #fff;
+          span {
+            font-size: 18px;
+            display: inline-block;
+            margin-left: 20px;
+          }
+        }
+        p {
+          font-size: 18px;
+        }
+        a {
+          color: #fff;
+          &:hover {
+            color: $brand-color;
+          }
+        }
+        .overlay-project-date {
+          font-size: 14px;  
+        }
+        .overlay-project-url {
+          clear: both;
+          overflow: hidden;
+          margin: auto; 
+          text-align: center;
+          .btn-default {
+            border-color: #fff;
+            color: #fff;
+            margin: 40px auto;
+            text-align: center;
+            font-size: 18px;
+            padding: 10px 80px;
+            background-color: rgba(255,255,255, 0);
+            transition: background-color 0.3s ease-in-out;
+            &:hover {
+              background-color: rgba(255,255,255, 1);
+              color: #000;
+            }
+          }
+        }
+        
+        .overlay-project-tags {
+          float: left;
+          width: 20%;
+
+          ul.tags {
+            padding-top: 20px;
+            li {
+              font-size: 16px;
+            }
+          }
+        }
+        .overlay-project-main {
+          float: left;
+          width: 79%;
+          border-right: 1px solid #333;
+          .overlay-project-description {
+            padding: 20px;
+          }
+        }
+        .overlay-project-thumb {
+          clear: both;
+          text-align: center;
+          margin:auto;
+        }
+      }
+    }
+  }
+  .overlay-results {
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+  }
+  @include media-query($bp-small){
+    .overlay, .overlay-results {
+      .overlay-modal {
+        width: 95%;
+        .overlay-project {
+          .overlay-project-title {
+            span {
+              display: block;
+              margin-left:0;
+            }           
+          }
+          .overlay-project-main {
+            float: none;
+            width: 100%;
+            border-right: 0px;
+            .overlay-project-description {
+              padding: 0;
+            }
+          }
+          .overlay-project-tags {
+            float: none;
+            width: 100%;
+            text-align: center;
+            ul.tags {
+              list-style-type: none;
+              margin: 0 auto;
+              padding: 0px;
+              
+              li {
+                display: inline-block;
+                margin: 2px 2px;
+                padding: 4px 8px;
+                background-color: rgba(255,255,255,0.1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
