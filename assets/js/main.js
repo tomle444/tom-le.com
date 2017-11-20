@@ -490,6 +490,7 @@ $(function () {
 	    // gather all the initial scrollLeft positions of each section and put into an array
 	    sectionsObject = {
 	    	home: $('#home').offset().left,
+	    	view1: $('.view-1').offset().left,
 	    	view2: $('.view-2').offset().left,
 	    	view3: $('.view-3').offset().left,
 	    	contact: $('#contact').offset().left,
@@ -499,6 +500,7 @@ $(function () {
 	    $(window).on('resize', function(){
 			sectionsObject = {
 		    	home: $('#home').offset().left,
+		    	view1: $('.view-1').offset().left,
 		    	view2: $('.view-2').offset().left,
 		    	view3: $('.view-3').offset().left,
 		    	contact: $('#contact').offset().left,
@@ -519,6 +521,8 @@ $(function () {
     			// get initial scroll left positions 
     			if(dataNav == 'home'){
     				position = 0
+    			} else if(dataNav == 'view-1'){
+    				position = sectionsObject.view1
     			} else if(dataNav == 'view-2'){
     				position = sectionsObject.view2
     			} else if(dataNav == 'view-3'){
