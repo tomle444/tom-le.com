@@ -31,13 +31,39 @@
           <div class="cover-container container">
             <div class="row">
               <div class="col-sm-12 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
-                <h1>Tom Le <small>Developer of websites, liker of things.</small></h1>
+                <h1>Tom Le <small>Developer of websites, <span>liker of things.</span></small></h1>
                 <p class="lead"></p>
-                <p>I enjoy making websites that are clean and functional.</p>
+                <p>{{ site.description | escape }}</p>
 
-                <p>My skills range from UI/UX design to front-end development. I am always keeping up with the latest web technologies and design trends. </p>
+                <ul class="social-media-list">
+                  {% if site.email %}<li><a href="mailto:{{ site.email }}"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>{% endif %}
+                  {% if site.github_username %}
+                  <li>
+                    {% include icon-github.html username=site.github_username %}
+                  </li>
+                  {% endif %}
+                  {% if site.twitter_username %}
+                  <li>
+                    {% include icon-twitter.html username=site.twitter_username %}
+                  </li>
+                  {% endif %}
+                  {% if site.linkedin_username %}
+                  <li>
+                    {% include icon-linkedin.html username=site.linkedin_username %}
+                  </li>
+                  {% endif %}
+                  {% if site.behance_username %}
+                  <li>
+                    {% include icon-behance.html username=site.behance_username %}
+                  </li>
+                  {% endif %}
+                  {% if site.dribbble_username %}
+                  <li>
+                    {% include icon-dribbble.html username=site.dribbble_username %}
+                  </li>
+                  {% endif %}
+                </ul>
 
-                <p>My specialties include HTML, CSS, Responsive Web Design, Graphic Design, Magento, Wordpress, Jekyll, Javascript, and Jquery.</p>
               </div>
               
                 <!-- <div class="skill-icons">
@@ -84,7 +110,7 @@
             </div>
           </div>
         </section>
-        <section class="work page view-2">
+        <section class="work page view-3">
           <div class="cover-container">
             <div class="row ">
               <div class="col-sm-12 col-md-12 col-lg-12">
@@ -133,10 +159,10 @@
     </div>
     
 <nav class="bottom" role="bottom-navigation">
-  <a href="javascript:void(0);" class="slide-home active" data-nav="home">Home</a>
-  <a href="javascript:void(0);" class="slide-work" data-nav="work">Work</a>
-  <a href="javascript:void(0);" class="slide-about" data-nav="about">About</a>
-  <a href="javascript:void(0);" class="slide-contact" data-nav="contact">Contact</a>
+  <a href="javascript:void(0);" class="slide-home active" data-nav="home"><span>01</span></a>
+  <a href="javascript:void(0);" class="slide-work" data-nav="view-2"><span>02</span></a>
+  <a href="javascript:void(0);" class="slide-about" data-nav="view-3"><span>03</span></a>
+  <a href="javascript:void(0);" class="slide-contact" data-nav="contact"><span>04</span></a>
 </nav>
     {% include footer.html %}
 

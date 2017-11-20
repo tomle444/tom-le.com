@@ -2,11 +2,11 @@
 # Only the main.scss Sass file needs front matter (the dashes are enough)
 ---
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i,800,800i,900,900i&subset=latin-ext');// Define defaults for each variable.
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i,800,800i,900,900i&subset=latin-ext|Roboto');// Define defaults for each variable.
 
-$base-font-family: "Questrial", "Lato", Georgia, serif !default; 
+$base-font-family: "Lato", Georgia, serif !default; 
 $base-header-font-family: "Montserrat" ,  Helvetica, Arial, serif !default; 
-$alt-header-font-family: "Questrial", "Lato", Georgia, serif !default; 
+$alt-header-font-family: "Roboto", "Lato", Georgia, serif !default; 
 $base-font-size:   1vw !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
