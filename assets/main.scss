@@ -2,11 +2,11 @@
 # Only the main.scss Sass file needs front matter (the dashes are enough)
 ---
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i,800,800i,900,900i&subset=latin-ext');// Define defaults for each variable.
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i,800,800i,900,900i&subset=latin-ext|Roboto');// Define defaults for each variable.
 
-$base-font-family: "Questrial", "Lato", Georgia, serif !default; 
+$base-font-family: "Lato", Georgia, serif !default; 
 $base-header-font-family: "Montserrat" ,  Helvetica, Arial, serif !default; 
-$alt-header-font-family: "Questrial", "Lato", Georgia, serif !default; 
+$alt-header-font-family: "Roboto", "Lato", Georgia, serif !default; 
 $base-font-size:   1vw !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
@@ -29,25 +29,19 @@ $base-header-font-color:       #000 !default;
 $base-header-font-color-1:       #fff !default;
 
 // Width of the content area
-$content-width:    1366px !default;
-$on-palm:          600px !default;
+$content-width:    1024px !default;
+$on-mobile:          414px !default;
 $on-laptop:        800px !default;
+$on-tablet:        768px !default;
 
 // Breakpoints
 $bp-xlarge:			1200px;
-$bp-large:			1024px;
+$bp-large:			1024px; 
 $bp-medium:			768px;
 $bp-small:			525px;
 $bp-xsmall:			425px;
 $bp-xxsmall:		320px;
 
-// Use media queries like this:
-// @include media-query($on-palm) {
-//   .wrapper {
-//     padding-right: $spacing-unit / 2;
-//     padding-left: $spacing-unit / 2;
-//   }
-// } 
 @mixin media-query($device) {
   @media screen and (max-width: $device) {
     @content;

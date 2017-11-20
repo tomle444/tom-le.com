@@ -30,9 +30,43 @@
         <section id="home" class="page home">
           <div class="cover-container container">
             <div class="row">
-              <h1>Hello, <small>my name is Tom.</small> <small>I design and build websites.</small></h1>
-              <p class="lead">I have experience with</p>
-                <div class="skill-icons">
+              <div class="col-sm-12 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+                <h1>Tom Le <small>Developer of websites, <span>liker of things.</span></small></h1>
+                <p class="lead"></p>
+                <p>{{ site.description | escape }}</p>
+
+                <ul class="social-media-list">
+                  {% if site.email %}<li><a href="mailto:{{ site.email }}"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>{% endif %}
+                  {% if site.github_username %}
+                  <li>
+                    {% include icon-github.html username=site.github_username %}
+                  </li>
+                  {% endif %}
+                  {% if site.twitter_username %}
+                  <li>
+                    {% include icon-twitter.html username=site.twitter_username %}
+                  </li>
+                  {% endif %}
+                  {% if site.linkedin_username %}
+                  <li>
+                    {% include icon-linkedin.html username=site.linkedin_username %}
+                  </li>
+                  {% endif %}
+                  {% if site.behance_username %}
+                  <li>
+                    {% include icon-behance.html username=site.behance_username %}
+                  </li>
+                  {% endif %}
+                  {% if site.dribbble_username %}
+                  <li>
+                    {% include icon-dribbble.html username=site.dribbble_username %}
+                  </li>
+                  {% endif %}
+                </ul>
+
+              </div>
+              
+                <!-- <div class="skill-icons">
                   <img src="{{ 'images/icons/icon_html5.png' | relative_url }}" alt="">
                   <img src="{{ 'images/icons/icon_css3.png' | relative_url }}" alt="">
                   <img src="{{ 'images/icons/icon_js.png' | relative_url }}" alt="">
@@ -43,33 +77,57 @@
                   <img src="{{ 'images/icons/icon_grunt.png' | relative_url }}" alt="">
                   <img src="{{ 'images/icons/icon_jquery.png' | relative_url }}" alt="">
                   <img src="{{ 'images/icons/icon_jekyll.png' | relative_url }}" alt="">
-                </div>
+                </div> -->
             </div>
           </div>
           
         </section>
-        <section id="work" class="page view-1">
+        <section id="work" class="work page view-1">
           <div class="cover-container">
             <div class="row ">
               <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="row no-gutters display-flex">
-                  <h2 class="work-header">Here is some of my work</h2>
+                <div class="row no-gutters">
                   <a href="#" data-toggle="lightbox" data-id="neoverve" class="item ">
                     <div class="item-overlay"><h4>Neoverve</h4> <i class="fa fa-plus-circle" aria-hidden="true"></i></div>
-                    <img src="{{ 'images/work/thumbnails/project-thumbnail-neoverve.jpg' | relative_url }}{{ 'images/work/thumbnails/project-thumbnail-neoverve.jpg' | relative_url }}" class="img-fluid">
+                    <img src="{{ 'images/work/project-neoverve.jpg' | relative_url }}{{ 'images/work/thumbnails/project-thumbnail-neoverve.jpg' | relative_url }}" class="img-fluid">
                   </a>
-                  <a href="#" data-toggle="lightbox" data-id="fpdatasolutions" class="item ">
-                    <div class="item-overlay"><h4>Focal Point Data Solutions</h4> <i class="fa fa-plus-circle" aria-hidden="true"></i></div>
-                    <img src="{{ 'images/work/thumbnails/project-thumbnail-fpdatasolutions.jpg' | relative_url }}" class="img-fluid">
-                  </a>
-                  <a href="#" data-toggle="lightbox" data-id="thedancesocks" class="item ">
-                    <div class="item-overlay"><h4>The Dance Socks</h4> <i class="fa fa-plus-circle" aria-hidden="true"></i></div>
-                    <img src="{{ 'images/work/thumbnails/project-thumbnail-thedancesocks.jpg' | relative_url }}" class="img-fluid">
-                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="work page view-2">
+          <div class="cover-container">
+            <div class="row ">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="row no-gutters">
                   <a href="#" data-toggle="lightbox" data-id="bsasi" class="item ">
                     <div class="item-overlay"><h4>Bay State Alarm Security Integrators</h4> <i class="fa fa-plus-circle" aria-hidden="true"></i></div>
-                    <img src="{{ 'images/work/thumbnails/project-thumbnail-bsasi.jpg' | relative_url }}" class="img-fluid">
+                    <img src="{{ 'images/work/project-bsasi.jpg' | relative_url }}" class="img-fluid">
                   </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="work page view-3">
+          <div class="cover-container">
+            <div class="row ">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="row no-gutters">
+                  <a href="#" data-toggle="lightbox" data-id="tribalhollywood" class="item ">
+                    <div class="item-overlay"><h4>Tribal Hollywood</h4> <i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+                    <img src="{{ 'images/work/project-tribalhollywood.jpg' | relative_url }}" class="img-fluid">
+                  </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- <section class="work page view-2">
+          <div class="cover-container">
+            <div class="row ">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="row no-gutters">
                   <a href="#" data-toggle="lightbox" data-id="tribalhollywood" class="item ">
                     <div class="item-overlay"><h4>Tribal Hollywood</h4> <i class="fa fa-plus-circle" aria-hidden="true"></i></div>
                     <img src="{{ 'images/work/thumbnails/project-thumbnail-tribalhollywood.jpg' | relative_url }}" class="img-fluid">
@@ -82,25 +140,14 @@
                     <div class="item-overlay"><h4>Women on Guard</h4> <i class="fa fa-plus-circle" aria-hidden="true"></i></div>
                     <img src="{{ 'images/work/thumbnails/project-thumbnail-womenonguard.jpg' | relative_url }}" class="img-fluid">
                   </a>
-                </div>
               </div>
             </div>
           </div>
-        </section>
-        <section id="about" class="page view-2">
-          <div class="cover-container">
-            <h1>About</h1>
-            <p>I enjoy making websites that are clean and functional.</p>
-
-<p>My skills range from UI/UX design to front-end development. I am always keeping up with the latest web technologies and design trends. Currently, I am a front-end web developer and designer at a Magento Hosting and Development company.</p>
-
-<p>My specialties include HTML, CSS, Responsive Web Design, Graphic Design, Magento, Wordpress, Jekyll, Javascript, and Jquery.</p>
-          </div>
-        </section>
+        </section> -->
         <section id="contact" class="page view-3">
           <div class="cover-container">
             <h1>Contact</h1>
-            <a href=""></a>
+            <a href="">hello@tomle.me</a>
           </div>
         </section>
 
@@ -112,10 +159,10 @@
     </div>
     
 <nav class="bottom" role="bottom-navigation">
-  <a href="javascript:void(0);" class="slide-home active" data-nav="home">Home</a>
-  <a href="javascript:void(0);" class="slide-work" data-nav="work">Work</a>
-  <a href="javascript:void(0);" class="slide-about" data-nav="about">About</a>
-  <a href="javascript:void(0);" class="slide-contact" data-nav="contact">Contact</a>
+  <a href="javascript:void(0);" class="slide-home active" data-nav="home"><span>01</span></a>
+  <a href="javascript:void(0);" class="slide-work" data-nav="view-2"><span>02</span></a>
+  <a href="javascript:void(0);" class="slide-about" data-nav="view-3"><span>03</span></a>
+  <a href="javascript:void(0);" class="slide-contact" data-nav="contact"><span>04</span></a>
 </nav>
     {% include footer.html %}
 
