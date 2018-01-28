@@ -511,18 +511,15 @@ body.index {
               position: relative;
               margin: auto;
               overflow: hidden;
-              max-height: 355px;
-              max-width: 355px;
+              max-height: 70vh;
+              max-width: 70vw;
               display: inline-block;
-              //display: flex;
               min-width: 24%;
               border: 10px solid #FFF;
-              border-radius: 1000px;
               justify-content: center;
               img.img-fluid {
                 transition: all 0.3s ease-in-out;
                 transform: scale(1);
-                max-width: initial !important; 
                 -webkit-backface-visibility: hidden;
                 -webkit-transform: translateZ(0) scale(1.0, 1.0);
                 image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
@@ -553,7 +550,7 @@ body.index {
               &:hover {
                  
                   img {
-                    transform: scale(1.05);
+                    // transform: scale(1.05);
                   }
                 
               }
