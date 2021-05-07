@@ -5,3 +5,5 @@ _site
 .Thumbs.db
 .psd
 psd
+node_modules
+package-lock.json
